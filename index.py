@@ -53,6 +53,7 @@ async def run_server(instruction: str, websocket: WebSocket):
         await process.wait()
         return process.returncode
     except Exception as e:
+        
         await websocket.send_text(f"Error executing instruction: {instruction}, {e}")
         return 1
 
